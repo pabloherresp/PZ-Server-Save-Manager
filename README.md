@@ -90,4 +90,6 @@ This time A uses the program to load the ZIP from B. A doesn't need to fix maps 
 This option will only appear if a url has been set in the variables section. This option will open the url in your browser.
 
 ## 2. Project Zomboid Server files and folders to talk about.
-(Feel free to comment on any missing file you might be 
+(Feel free to comment on any missing file you might find)
+
+# Work in progress.
