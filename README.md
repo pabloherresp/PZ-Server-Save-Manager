@@ -39,8 +39,8 @@ Stores the url where you and your friends will share the ZIPs files, for example
 Decide if backups of files are done before overwriting them. 1 = true, 0 = false. True by default.
 
 ## 2. How to use
-
-When prompted to choose an option, write the number you want to do.
+You can run this script by selecting it and pressing `Enter`, or by doing right click and look for `Run`.
+When prompted to choose an option, write the number of the action you wish to do.
 ```
 - OPTIONS -
 . . 1 to SAVE a new zip file
@@ -51,19 +51,19 @@ When prompted to choose an option, write the number you want to do.
 . . 0 to CLOSE the program
 ```
 
-### 2.1. SAVE A new zip file
+#### 2.1. Save A new zip file
 
 This option creates a ZIP file in the location defined in `def_zip_loc` (Downloads by default). The name of the ZIP will be the current date and time, followed by the word `_PZ_Server_` and finally, the name of the server.
 
-### 2.2. LOAD from a existing zip file
+#### 2.2. Load from a existing zip file
 
 This option will list all the zips in the folder `def_zip_loc` that match all the files that end in `_PZ_server_%server_name%.zip` where `%server_name%` is the name of your server.
 
-### 2.3. OPEN zip file folder
+#### 2.3. Open zip file folder
 
 This option will open the folder `def_zip_loc` so you can access quickily after saving a new zip file.
 
-### 2.4. FIX map files for a server
+#### 2.4. Fix missing map files for a server. Read with caution!
 <img align="right" width="200" src="https://github.com/pabloherresp/PZ-Server-Save-Manager/assets/16340577/990a1ec8-ac90-4196-bbfd-0c9d1f822bfe">  
 <p>One of the hardest parts to work with, the ingame map, the one you open when pressing `M`, is stored on the player files instead of server side. You store the zones you've discovered and the symbols you've written in your computer as a client. So when the same server is hosted from a different computer, a new folder with a different name is created referencing this new host, and the map seems to be empty as the data can't be read from the previous folder.</p>
 
@@ -82,14 +82,21 @@ Let's see an example, if you are 3 friends, `A, B and C`, with `SteamIDs 001, 00
 He suddenly can't play the next day, so he uses this program to create a save and sends it to B. Now B uses the program to load the zip he received and can host the server from the Host option in the game. Both B and C join the server and they can check the discovered ingame map and the symbols has been lost so they both leave the game. At this moment, B would use the program again, select this option and choose the folder of the previous host (A) called `001_Elephant_player` and overwrite the files inside his own host folder `Elephant_player`. Player C will firstly choose the same folder of the previous host (A) and then the folder for the new host (B), `002_Elephant_player`. Then both can join the game with the map as they had it the first day. They finish playing and B creates a new zip in order to share it with A for the next day.  
 
 This time A uses the program to load the ZIP from B. A doesn't need to fix maps as his map hasn't updated since the first day. B needs to use the program using the maps from `Elephant_player` (his own host folder) and overwrite `001_Elephant_player` (the folder when A hosts), this folder already exists as it's the one B used the first day, he doesn't need to join once before fixing maps as B and C had to do the second day. Finally, C needs to do the same as B but using `002_Elephant_player` as his first folder (the folder when B hosts), and overwrite the folder when A hosts, he already have both folders as B so he can do it before joining once.  
+
 </details>
 
 ##### (I know this option to fix maps is really confusing and I've tried to explain the process and issues the best I could, any problem you have while trying it can be sorted out as no files are deleted, all files that could be overwritten are renamed using the date and time in which the fix was attempted.)
 
-### 2.5. OPEN url link (Optional)
+#### 2.5. Open url link (Optional)
 This option will only appear if a url has been set in the variables section. This option will open the url in your browser.
 
-## 2. Project Zomboid Server files and folders to talk about.
+## 3. Get the backup files back
+
+Any time you load a zip, the folders that would be overwritten are moved to a new folder inside `~/Zomboid/backups`, this folder will be named with the current date and time followed by the suffix `_backup`. If you want to restore a backup, you just need to copy the 3 folders `db, Saves and Server` inside this folder to the Zomboid folder, you will be asked to overwrite files.  
+<br>
+The map files that are backed up when trying to fix missing maps `map_visited.bin and map_symbols.bin` are only renamed adding `_backup_` and the date at the end of the name, so you just need to delete or rename the previous file and then renove the part of the name that was added to the files you want to restore so they are called `map_visited.bin and map_symbols.bin` again.
+
+## 4. Some knowledge about Project Zomboid folders and files
 (Feel free to comment on any missing file you might find)
 
 # Work in progress.
