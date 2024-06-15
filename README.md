@@ -117,9 +117,9 @@ This is the file structure where `server-name` is the name of your server.
 ```
 
 These are the only folders and files I've needed to work with in order to let a friend host the game without losing characters, items, map tiles, etc. Fixing the ingame maps was a little harder to achieve but it has worked correctly for me moving the 2 .bin files listed above with the program.  
-${\textsf{\color{lightgreen}Not all this info is important for using this program, I'm just leaving it here in case it is useful for someone.}}$
-- The file `server-name.db` inside the `db` folder stores the tickets, userlogs and whitelist details. Another file that holds player's info is `players.db` inside `Saves/Multiplayer/server-name`. You can check these two files if someone can't join for any reason, it shouldn't happen when using
-
+${\textsf{\color{orange}Not all this info is important for using this program, I'm just leaving it here in case it is useful for someone.}}$
+- The file `server-name.db` inside the `db` folder stores the tickets, userlogs and whitelist details. Another file that holds player's info is `players.db` inside `Saves/Multiplayer/server-name`. You can check these two files if someone can't join for any reason. You can check these files at your own risk with software like [this](https://sqlitebrowser.org).
+- The 2 folders inside Multiplayer folder that contain the name of your server store all the saved data, character info, where items are located, zombies location, etc.
+- The 3 files Server folder that contain the name of your server store all the settings of the server.
+  
 (Feel free to comment on any missing file you might find important to add, I've only scripted to copy folders and files I would need to load but some mods i don't own might save data in different files)
-
-# Work in progress.
