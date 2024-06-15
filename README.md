@@ -98,8 +98,8 @@ Any time you load a zip, the folders that would be overwritten are moved to a ne
 <br>
 The map files that are backed up when trying to fix missing maps `map_visited.bin and map_symbols.bin` are only renamed adding `_backup_` and the date at the end of the name, so you just need to delete or rename the previous file and then renove the part of the name that was added to the files you want to restore so they are called `map_visited.bin and map_symbols.bin` again.
 
-## 4.Little comment about Project Zomboid server folders and files
-This is the file structure where `server-name` is the name of your server.
+## 4. Little note about Project Zomboid server folders and files
+This is the file structure this program works with, where `server-name` is the name of your server.
 ```
 ~/Zomboid
    ├── db
