@@ -8,6 +8,8 @@
 > [!NOTE]
 > You don't need to close the game in order to let this program manage files, you can stay in the main menu.
 
+You can access the download [here](https://github.com/pabloherresp/PZ-Server-Save-Manager/releases).
+
 ## 1. File setup
 
 The first time you try to execute the program, you might be prompted to do the initial setup.  
