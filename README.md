@@ -2,8 +2,8 @@
 
 ### A little tool to manage server saves between different hosts in Windows.
 
-> [!IMPORTANT]
-> This tool is still being tested and I'm trying to improve its features. By default, all data that could be overwritten will be renamed or moved to a backup folder before deleting it.
+> [!WARNING]
+> This tool is still being tested. By default, all data that could be overwritten will be renamed or moved to a backup folder before deleting it.
 
 > [!NOTE]
 > You don't need to close the game in order to let this program manage files, you can stay in the main menu.
@@ -67,7 +67,7 @@ This option will open the folder `def_zip_loc` so you can access quickily after 
 <img align="right" width="200" src="https://github.com/pabloherresp/PZ-Server-Save-Manager/assets/16340577/990a1ec8-ac90-4196-bbfd-0c9d1f822bfe">  
 <p>One of the hardest parts to work with, the ingame map, the one you open when pressing `M`, is stored on the player files instead of server side. You store the zones you've discovered and the symbols you've written in your computer as a client. So when the same server is hosted from a different computer, a new folder with a different name is created referencing this new host, and the map seems to be empty as the data can't be read from the previous folder.</p>
 
-> [!NOTE]
+> [!IMPORTANT]
 > Fixing this is a client side action, all players wanting to get the maps back have to perform this action with the program.
 
 The only way to make this option work is knowing the two folders whose files need to be moved. These folders are found inside the `~/Zomboid/Saves/Multiplayer` folder, they are named with the SteamID of the player who hosted the game  (if the server has been hosted from the host option in the main menu while playing from Steam) or an IP (if a dedicated server has been used) followed by the server name and the `_player` suffix, unless you are the one who hosted the game, in this case there won't be any SteamID or IP, the folder will be named with just the server name and the suffix `_player`. (You can use [this web](https://www.steamidfinder.com/) to see if the SteamID belongs to one of your friends who has hosted)  
@@ -75,7 +75,7 @@ The only way to make this option work is knowing the two folders whose files nee
 When selecting this option, all the folders that match the pattern for the desired server name will be listed and you will be prompted to select two of them. First, you will choose the folder whose maps you will play with, and then, the folder whose maps will be overwritten. It is important to note that these folders MUST exist before using it, so you need to join the new host at least once before trying to fix the maps if you've never joined.  
 
 <details>
-<summary>${\textsf{\color{lightgreen}Example of using this feature}}$</summary>
+<summary>${\textsf{\color{lightgreen}Example of using this feature. Click here.}}$</summary>
   
 Let's see an example, if you are 3 friends, `A, B and C`, with `SteamIDs 001, 002 and 003` respectively (Real IDs are actually longer), playing in a server called `Elephant`, let's say A hosts the first day and all three players join.  
 
@@ -85,7 +85,9 @@ This time A uses the program to load the ZIP from B. A doesn't need to fix maps 
 
 </details>
 
-##### (I know this option to fix maps is really confusing and I've tried to explain the process and issues the best I could, any problem you have while trying it can be sorted out as no files are deleted, all files that could be overwritten are renamed using the date and time in which the fix was attempted.)
+> [!NOTE]
+> (I know this option to fix maps is really confusing and I've tried to explain the process and issues the best I could, any problem you have while trying it can be sorted out as no files are deleted, all files that could be overwritten are renamed using the date and time in which the fix was attempted.)
+
 
 #### 2.5. Open url link (Optional)
 This option will only appear if a url has been set in the variables section. This option will open the url in your browser.
@@ -96,7 +98,28 @@ Any time you load a zip, the folders that would be overwritten are moved to a ne
 <br>
 The map files that are backed up when trying to fix missing maps `map_visited.bin and map_symbols.bin` are only renamed adding `_backup_` and the date at the end of the name, so you just need to delete or rename the previous file and then renove the part of the name that was added to the files you want to restore so they are called `map_visited.bin and map_symbols.bin` again.
 
-## 4. Some knowledge about Project Zomboid folders and files
-(Feel free to comment on any missing file you might find)
+## 4.Little comment about Project Zomboid server folders and files
+This is the file structure where `server-name` is the name of your server.
+```
+~/Zomboid
+   ├── db
+   │   └── server-name.db
+   ├── Saves
+   │   └── Multiplayer
+   │       ├── server-name
+   │       └── server-name_player
+   │           ├── map_symbols.bin   (only for missing map fixing)
+   │           └── map_visited.bin   (only for missing map fixing)
+   └── Server
+       ├── server-name.ini
+       ├── server-name_SandboxVars.lua
+       └── server-name_spawnregions.lua
+```
+
+These are the only folders and files I've needed to work with in order to let a friend host the game without losing characters, items, map tiles, etc. Fixing the ingame maps was a little harder to achieve but it has worked correctly for me moving the 2 .bin files listed above with the program.  
+${\textsf{\color{lightgreen}Not all this info is important for using this program, I'm just leaving it here in case it is useful for someone.}}$
+- The file `server-name.db` inside the `db` folder stores the tickets, userlogs and whitelist details. Another file that holds player's info is `players.db` inside `Saves/Multiplayer/server-name`. You can check these two files if someone can't join for any reason, it shouldn't happen when using
+
+(Feel free to comment on any missing file you might find important to add, I've only scripted to copy folders and files I would need to load but some mods i don't own might save data in different files)
 
 # Work in progress.
