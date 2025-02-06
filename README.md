@@ -4,6 +4,7 @@
 
 > [!WARNING]
 > This tool is still being tested. By default, all data that could be overwritten will be renamed or moved to a backup folder before deleting it.
+> Update: I haven't updated again for some time, but the core functionalities still work. If anyone needs any new feature, feel free to DM me.
 
 > [!NOTE]
 > You don't need to close the game in order to let this program manage files, you can stay in the main menu.
